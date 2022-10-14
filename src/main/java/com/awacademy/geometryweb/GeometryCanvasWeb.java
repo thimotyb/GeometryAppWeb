@@ -94,19 +94,19 @@ public class GeometryCanvasWeb {
     }
 
 
-
-
-    /*@GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Shape> getAllShapes() {
         List<Shape> allShapes = new ArrayList<>();
-        // TODO: This is not OCP, we will have to modify it
-        allShapes.addAll(factory.getShapes("Circle"));
-        allShapes.addAll(factory.getShapes("Square"));
-        allShapes.addAll(factory.getShapes("Rectangle"));
+        for (String key: ShapeFactory.myShapeDictionary.keySet()) {
+            List<Shape> array = ShapeFactory.myShapeDictionary.get(key);
+            if (array.size() > 0) {
+                allShapes.addAll(array);
+            }
+        }
         return allShapes;
-    }*/
+    }
 
-    @GetMapping(value = "/")
+ /*   @GetMapping(value = "/")
     public String getAllShapes() {
         StringBuilder allShapes = new StringBuilder();
         for (String key: ShapeFactory.myShapeDictionary.keySet()) {
@@ -116,7 +116,7 @@ public class GeometryCanvasWeb {
             }
         }
         return allShapes.toString();
-    }
+    }*/
 
 
 }
