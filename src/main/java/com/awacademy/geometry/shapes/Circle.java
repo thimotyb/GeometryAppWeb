@@ -29,4 +29,11 @@ public class Circle implements Shape {
         return 2 * 3.14d * radius;
     }
 
+    public Point getCenter() {
+        return center;
+    }
+
+    public int getRadius() {
+        return radius;
+    }
 }
