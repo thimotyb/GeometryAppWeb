@@ -31,4 +31,12 @@ public class Square implements Shape {
         return sideLength*sideLength;
     }
 
+
+    public Point getTopLeftCorner() {
+        return topLeftCorner;
+    }
+
+    public int getSideLength() {
+        return sideLength;
+    }
 }

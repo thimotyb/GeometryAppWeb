@@ -33,4 +33,15 @@ public class Rectangle implements Shape {
         return width*height;
     }
 
+    public Point getTopLeftCorner() {
+        return topLeftCorner;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
 }

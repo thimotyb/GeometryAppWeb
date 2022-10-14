@@ -2,6 +2,8 @@ package com.awacademy.geometryweb;
 
 import com.awacademy.geometry.base.Shape;
 import com.awacademy.geometry.shapes.Circle;
+import com.awacademy.geometry.shapes.Rectangle;
+import com.awacademy.geometry.shapes.Square;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -63,6 +65,36 @@ public class GeometryCanvasWeb {
         c = (Circle)shape;
         return c;
     }
+
+    @PostMapping(value = "/square/{x_center}/{y_center}/{sideLength}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Square addSquare(@PathVariable int x_center, @PathVariable int y_center, @PathVariable int sideLength) {
+        Square s = null;
+        List<Integer> myParams = new ArrayList<>();
+        myParams.add(x_center); // x
+        myParams.add(y_center); // y
+        myParams.add(sideLength); // side
+        Shape shape = factory.createShape(1, myParams);
+        factory.setShape(shape, 1);
+        s = (Square)shape;
+        return s;
+    }
+
+    @PostMapping(value = "/rectangle/{x_center}/{y_center}/{height}/{width}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Rectangle addRectangle(@PathVariable int x_center, @PathVariable int y_center, @PathVariable int height, @PathVariable int width) {
+        Rectangle r = null;
+        List<Integer> myParams = new ArrayList<>();
+        myParams.add(x_center); // x
+        myParams.add(y_center); // y
+        myParams.add(height); // height
+        myParams.add(width);
+        Shape shape = factory.createShape(3, myParams);
+        factory.setShape(shape, 3);
+        r = (Rectangle)shape;
+        return r;
+    }
+
+
+
 
     /*@GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Shape> getAllShapes() {
